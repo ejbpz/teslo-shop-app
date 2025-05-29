@@ -1,4 +1,42 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../public/assets/fonts/montserrat-alternates/MontserratAlternates-Medium.ttf");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../public/assets/fonts/poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+}
+
 @import "tailwindcss";
+
+@theme {
+  --font-poppins: "Poppins", "sans-serif";
+  --font-montserrat: "Montserrat", "sans-serif";
+
+  --animate-fade-in: fade-in 0.3s ease-in-out;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
 @plugin "daisyui" {
-  themes: dim
+  themes: sunset --default;
 }
