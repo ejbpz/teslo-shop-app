@@ -1,14 +1,14 @@
-<div class="card bg-base-100 shadow-sm animate-fade-in">
+<div class="card bg-base-100 shadow-xl animate-fade-in">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
+      [src]="getImage()"
+      [alt]="product().title" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+    <h2 class="card-title text-white">{{product().title}}</h2>
+    <p class="text-neutral-content">{{product().description | slice : 0 : 70}}...</p>
     <div class="card-actions justify-end">
-      <a class="btn btn-primary" [routerLink]="['/product', 't-shirt']">Buy Now</a>
+      <a class="btn btn-info text-white" [routerLink]="['/product', product().slug]">Buy Now</a>
     </div>
   </div>
 </div>
