@@ -1,1 +1,12 @@
-<p>gender-page works!</p>,
+<h1 class="text-2xl font-montserrat mx-3">{{gender() | titlecase}} Products</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-2 gap-3">
+  @for (product of productsResource.value()?.products; track product.id) {
+    <product-card [product]="product"/>
+  }
+
+  @empty {
+    <p class="w-full text-center col-span-full mt-5 text-error">No products</p>
+  }
+</div>
+

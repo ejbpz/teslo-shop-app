@@ -1,14 +1,23 @@
 <div class="card bg-base-100 shadow-xl animate-fade-in">
   <figure>
     <img
-      [src]="getImage()"
+      [src]="product().images | productImage"
       [alt]="product().title" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title text-white">{{product().title}}</h2>
+    <h2
+      class="card-title text-white cursor-pointer hover:text-amber-400"
+      (click)="buyProduct.click()"
+      >{{product().title}}
+    </h2>
     <p class="text-neutral-content">{{product().description | slice : 0 : 70}}...</p>
     <div class="card-actions justify-end">
-      <a class="btn btn-info text-white" [routerLink]="['/product', product().slug]">Buy Now</a>
+      <a
+        #buyProduct
+        class="btn btn-info text-white"
+        [routerLink]="['/product', product().slug]"
+        >Buy Now
+      </a>
     </div>
   </div>
 </div>
