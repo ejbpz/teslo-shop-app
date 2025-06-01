@@ -1,0 +1,13 @@
+<div class="join flex justify-center mt-8 mb-10">
+
+  @for (page of getPagesList(); track page) {
+    <input
+      class="join-item btn btn-square"
+      type="radio"
+      name="options"
+      [routerLink]="[]"
+      [ariaLabel]="page"
+      [queryParams]="{page: page}"
+      [checked]="page === currentPage()"/>
+  }
+</div>
