@@ -1,20 +1,17 @@
-import { Routes } from "@angular/router"
-import { AuthLayoutComponent } from "./layout/auth-layout/auth-layout.component";
-import { LoginPageComponent } from "./pages/login-page/login-page.component";
-import { RegisterPageComponent } from "./pages/register-page/register-page.component";
+import { Routes } from "@angular/router";
 
 const authRoutes: Routes = [
   {
     path: '',
-    component: AuthLayoutComponent,
+    loadComponent: () => import('./layout/auth-layout/auth-layout.component'),
     children: [
       {
         path: 'login',
-        component: LoginPageComponent
+        loadComponent: () => import('./pages/login-page/login-page.component')
       },
       {
         path: 'register',
-        component: RegisterPageComponent
+        loadComponent: () => import('./pages/register-page/register-page.component'),
       },
       {
         path: '**',

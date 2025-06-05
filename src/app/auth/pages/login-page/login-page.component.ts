@@ -9,7 +9,7 @@ import { Router, RouterLink } from '@angular/router';
   imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './login-page.component.html',
 })
-export class LoginPageComponent {
+export default class LoginPageComponent {
   private formBuilder = inject(FormBuilder);
   authService = inject(AuthService);
   router = inject(Router);
