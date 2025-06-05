@@ -1,6 +1,6 @@
 # Teslo Shop
 Teslo Shop is a clothing e-commerce web app built with Angular 19.
-The backend (NestJS API with Dockerized PostgreSQL) is provided [here]('https://github.com/Klerith/nest-teslo-shop/tree/complete-backend-paginated').
+The backend (NestJS API with Dockerized PostgreSQL) is provided [here](https://github.com/Klerith/nest-teslo-shop/tree/complete-backend-paginated).
 
 ## 🧪 Features
 ✔️ Product catalog with server-side pagination       
