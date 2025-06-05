@@ -22,6 +22,14 @@
               [routerLink]="['/gender/kids']"
               routerLinkActive="text-info"> Kids </a>
         </li>
+
+        @if(authService.isAdmin()) {
+          <li>
+            <a class="btn btn-ghost"
+            [routerLink]="['/admin/products']"
+            routerLinkActive="text-info"> Dashboard </a>
+          </li>
+        }
       </ul>
     </div>
     <a [routerLink]="['/']"
@@ -47,6 +55,14 @@
             [routerLink]="['/gender/kids']"
             routerLinkActive="text-info"> Kids </a>
       </li>
+
+      @if(authService.isAdmin()) {
+        <li>
+          <a class="btn btn-ghost"
+          [routerLink]="['/admin/products']"
+          routerLinkActive="text-info"> Dashboard </a>
+        </li>
+      }
     </ul>
   </div>
   <div class="navbar-end flex gap-2">

@@ -5,7 +5,11 @@ import { environment } from 'src/environments/environment';
   name: 'productImage'
 })
 export class ProductImagePipe implements PipeTransform {
-  transform(value: string | string[]): string {
+  transform(value: null | string | string[]): string {
+    if(value === null) {
+      return './assets/images/no-image.jpg';
+    }
+
     if (typeof value === 'string') {
       return `${environment.baseUrl}/files/product/${value}`;
     }

@@ -69,7 +69,7 @@
 
           <div class="divider my-2"></div>
 
-          <div class="absolute w-[90%] flex bottom-2">
+          <div class="absolute w-4/5 justify-center md:w-[90%] flex bottom-2">
             <button
               (click)="authService.logout()"
               [routerLink]="['/']"
@@ -81,7 +81,7 @@
       </div>
     </div>
 
-    <div class="flex-1 p-5 ml-64">
+    <div class="flex-1 p-5 ml-32 md:ml-64">
       <router-outlet/>
     </div>
   </div>

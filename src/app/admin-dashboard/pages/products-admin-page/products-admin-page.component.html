@@ -5,15 +5,20 @@
 
 <div class="divider"></div>
 
-<div class="px-4 flex justify-between items-center">
+<div class="px-10 flex justify-between items-center not-sm:flex-col gap-5">
   <app-pagination
+  class="order-1"
   [currentPage]="paginationService.currentPage()"
   [pages]="productsResource.value()?.pages ?? 1"/>
+
+  <button
+    [routerLink]="['/admin/product/new']"
+    class="btn btn-info sm:order-2">New Product</button>
 
   <select
     #amout
     (change)="productsPerPage.set(+amout.value)"
-    class="select select-bordered w-32">
+    class="not-sm:mb-5 select select-bordered w-32 not-sm:order-2 order-3">
     <option value="10">10</option>
     <option value="20">20</option>
     <option value="50">50</option>

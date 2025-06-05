@@ -2,7 +2,6 @@ import { inject } from "@angular/core";
 import { CanMatchFn, Router } from "@angular/router";
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from "../services/auth.service";
-import { User } from "../interfaces/user.interface";
 
 export const isAdminGuard: CanMatchFn = async (route, segments) => {
   const authService = inject(AuthService);
