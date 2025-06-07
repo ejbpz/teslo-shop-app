@@ -6,7 +6,12 @@
   }
 
   @empty {
-    <p class="w-full text-center col-span-full mt-5 text-error">No products</p>
+    @if (productsResource.isLoading()) {
+      <p class="w-full text-center col-span-full mt-5 text-warning">Loading...</p>
+    }
+    @else {
+      <p class="w-full text-center col-span-full mt-5 text-error">No products</p>
+    }
   }
 </div>
 
