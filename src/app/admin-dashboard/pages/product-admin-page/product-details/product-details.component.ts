@@ -1,5 +1,5 @@
 import { Product } from '@/products/interfaces/product-response.interface';
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, input, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductSwiperComponent } from "@products/components/product-swiper/product-swiper.component";
 import { FormUtils } from '@utils/form-utils';
@@ -21,6 +21,11 @@ export class ProductDetailsComponent implements OnInit {
   product = input.required<Product>();
 
   wasSaved = signal(false);
+  tempImages = signal<string[]>([]);
+  imageFileList: FileList | undefined = undefined;
+  imagesToSwiper = computed(() => {
+    return [...this.product().images, ...this.tempImages()]
+  })
   sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
   ngOnInit(): void {
@@ -95,7 +100,7 @@ export class ProductDetailsComponent implements OnInit {
 
     if(this.product().id === 'new') {
       const product = await firstValueFrom(
-        this.productsService.createProduct(productLike)
+        this.productsService.createProduct(productLike, this.imageFileList)
       );
 
       this.router.navigate(['/admin/product', product.id]);
@@ -105,7 +110,7 @@ export class ProductDetailsComponent implements OnInit {
       // );
     } else {
       await firstValueFrom(
-        this.productsService.updateProduct(this.product().id, productLike)
+        this.productsService.updateProduct(this.product().id, productLike, this.imageFileList)
       );
       // this.productsService.updateProduct(this.product().id, productLike).subscribe();
     }
@@ -114,5 +119,17 @@ export class ProductDetailsComponent implements OnInit {
     setTimeout(() => {
       this.wasSaved.set(false);
     }, 2000);
+  }
+
+  onFilesChanged(event: Event) {
+    const fileList = (event.target as HTMLInputElement).files;
+    this.imageFileList = fileList ?? undefined;
+
+    const imagesUrls = Array.from(fileList ?? []).map(
+      file => URL.createObjectURL(file)
+    );
+
+    this.tempImages.set(imagesUrls);
+
   }
 }
