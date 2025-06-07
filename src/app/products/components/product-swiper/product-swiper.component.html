@@ -1,4 +1,4 @@
-<div class="swiper w-full h-[500px]" #swiperDiv>
+<div class="swiper w-full h-fit" #swiperDiv>
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
 
@@ -30,3 +30,10 @@
   <!-- If we need scrollbar -->
   <div class="swiper-scrollbar"></div>
 </div>
+
+<style>
+  * {
+    --swiper-navigation-size: 30px;
+    --swiper-theme-color: var(--color-warning);
+  }
+</style>
