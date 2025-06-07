@@ -1,20 +1,20 @@
 <!-- component -->
-<main class="font-poppins antialiased overflow-x-hidden">
+<main class="font-poppins antialiased">
   <div
     id="view"
-    class="h-full w-screen flex flex-row"
+    class="h-full w-screen flex sm:flex-row not-sm:flex-col"
     x-data="{ sidenav: true }"
   >
     <div
       id="sidebar"
-      class="bg-base-300 fixed h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"
+      class="not-sm:h-1/3 not-sm:w-screen bg-base-300 sm:fixed sm:min-h-screen md:block shadow-xl sm:px-3 w-30 md:w-60 lg:w-60 sm:h-full transition-transform duration-300 ease-in-out px-5"
       x-show="sidenav"
     >
-      <div class="space-y-6 md:space-y-10 mt-10">
+      <div class="space-y-6 md:space-y-10 mt-8 sm:mt-10">
         <h1>
           <a
             [routerLink]="['/']"
-            class="btn btn-ghost hidden md:block font-bold md:text-xl text-center text-xl font-montserrat">Teslo
+            class="btn btn-ghost block font-bold text-[1rem] md:text-xl text-center font-montserrat">Teslo
             <span class="text-info">| Shop</span>
           </a>
         </h1>
@@ -69,7 +69,7 @@
 
           <div class="divider my-2"></div>
 
-          <div class="absolute w-4/5 justify-center md:w-[90%] flex bottom-2">
+          <div class="sm:absolute w-full sm:w-4/5 justify-center md:w-[90%] flex bottom-2">
             <button
               (click)="authService.logout()"
               [routerLink]="['/']"
@@ -81,7 +81,7 @@
       </div>
     </div>
 
-    <div class="flex-1 p-5 ml-32 md:ml-64">
+    <div class="flex-1 p-5 ml-0 sm:ml-32 md:ml-64">
       <router-outlet/>
     </div>
   </div>
