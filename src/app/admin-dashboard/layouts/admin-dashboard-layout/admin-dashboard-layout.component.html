@@ -5,9 +5,76 @@
     class="h-full w-screen flex sm:flex-row not-sm:flex-col"
     x-data="{ sidenav: true }"
   >
+    <div class="hidden not-sm:flex navbar bg-base-100 shadow-sm">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li>
+              <a
+                [routerLink]="['/admin/dashboard']"
+                routerLinkActive="bg-primary"
+                class="text-sm font-medium text-white py-2 px-2 hover:bg-primary hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out"
+              >
+                <svg
+                  class="w-6 h-6 fill-current inline-block"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                  ></path>
+                </svg>
+                <span class="">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a
+                [routerLink]="['/admin/products']"
+                routerLinkActive="bg-primary"
+                class="text-sm font-medium text-white py-2 px-2 hover:bg-primary hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+              >
+                <svg
+                  class="w-6 h-6 fill-current inline-block"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"
+                  ></path>
+                </svg>
+                <span class="">Products</span>
+              </a>
+            </li>
+
+            <div class="divider my-2"></div>
+
+            <li>
+              <button
+                (click)="authService.logout()"
+                [routerLink]="['/']"
+                class="w-full btn btn-ghost text-error hover:btn-error hover:text-white">Log Out
+              </button>
+            </li>
+          </ul>
+        </div>
+        <a [routerLink]="['/']"
+          class="btn btn-ghost text-xl font-montserrat"
+          >Teslo
+          <span class="text-info">| Shop</span>
+        </a>
+      </div>
+    </div>
+
     <div
       id="sidebar"
-      class="not-sm:h-1/3 not-sm:w-screen bg-base-300 sm:fixed sm:min-h-screen md:block shadow-xl sm:px-3 w-30 md:w-60 lg:w-60 sm:h-full transition-transform duration-300 ease-in-out px-5"
+      class="not-sm:hidden bg-base-300 sm:fixed sm:min-h-screen md:block shadow-xl sm:px-3 w-30 md:w-60 lg:w-60 sm:h-full transition-transform duration-300 ease-in-out px-5"
       x-show="sidenav"
     >
       <div class="space-y-6 md:space-y-10 mt-8 sm:mt-10">
