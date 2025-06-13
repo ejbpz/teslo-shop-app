@@ -8,6 +8,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
     <product-swiper [images]="productResource.value().images"/>
 
+    <button class="sm:hidden my-4 btn btn-info text-white">${{productResource.value().price}}</button>
     <div>
       <h2 class="text-2xl font-bold font-montserrat">{{productResource.value().title}}</h2>
 
@@ -16,6 +17,18 @@
       <p>
         {{productResource.value().description}}
       </p>
+
+      <div class="flex gap-2 mt-10 overflow-x-scroll not-sm:mb-12">
+        @for (size of productResource.value().sizes; track size) {
+          <div class="flex border-2 rounded-lg border-gray-600 w-3xl px-1 py-0.5 h-fit">
+            <p class="text-center w-full">{{size}}</p>
+          </div>
+        }
+      </div>
+
+      <div class="w-full text-center">
+        <button class="not-sm:hidden my-10 btn btn-info w-3xs text-white">${{productResource.value().price}}</button>
+      </div>
     </div>
   </div>
 }
