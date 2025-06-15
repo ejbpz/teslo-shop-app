@@ -13,7 +13,7 @@ The backend (NestJS API with Dockerized PostgreSQL) is provided [here](https://g
 ## 💻 Frontend Setup
 1. Clone repository
 ```sh
-git clone https://github.com/ejbpz/teslo-shop-app.git
+git clone https://github.com/ejbpz/teslo-shop-angular-app.git
 ```
 
 2. Install npm packages
