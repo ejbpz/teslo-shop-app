@@ -1,8 +1,10 @@
 import { AuthService } from '@/auth/services/auth.service';
 import { FormUtils } from '@/utils/form-utils';
 import { Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'login-page',
@@ -13,6 +15,13 @@ export default class LoginPageComponent {
   private formBuilder = inject(FormBuilder);
   authService = inject(AuthService);
   router = inject(Router);
+
+  route = toSignal(
+    inject(ActivatedRoute).queryParams.pipe(
+      map((param) => param['redirectTo'])
+    )
+  );
+
 
   hasError = signal(false);
   isPosting = signal(false);
@@ -44,7 +53,7 @@ export default class LoginPageComponent {
     this.authService.login(email, password).subscribe(
       (isValid) => {
         if(isValid) {
-          this.router.navigateByUrl('/');
+          this.router.navigate([`${this.route()}`]);
           return;
         }
 
