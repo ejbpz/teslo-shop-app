@@ -27,10 +27,11 @@ ng serve -o
 ```
 
 ## 🧰 Technologies Used
-- Angular 19
 - TypeScript
-- Tailwind CSS
+- Angular 19
 - RxJS
+- Tailwind CSS
+- DaisyUI
 - Angular Guards & Interceptors
 
 ## 📜 License
