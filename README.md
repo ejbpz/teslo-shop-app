@@ -29,6 +29,7 @@ ng serve -o
 ## 🧰 Technologies Used
 - Angular 19
 - TypeScript
+- Tailwind CSS
 - RxJS
 - Angular Guards & Interceptors
 
